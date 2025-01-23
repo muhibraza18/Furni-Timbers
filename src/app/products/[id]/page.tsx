@@ -41,10 +41,7 @@ const page = async ({ params }: { params: { id: string } }) => {
           <div className="mt-4 text-xl lg:text-base">
             Status: {items.inventory > 0 ? "Instock" : "Unavailable"}
           </div>
-          <div className="gap-10 flex m-5">
-            {/* <button className="rounded-xl bg-red-400 hover:bg-red-300 text-lg font-semibold px-4 py-2 text-white">
-              Add to Cart
-            </button> */}
+          <div className="gap-6 flex m-5">
             <AddToCart
               description={items.description}
               name={items.title}

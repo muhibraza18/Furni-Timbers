@@ -32,10 +32,10 @@ const page = async (props: PageProps) => {
   const items: Product[] = await client.fetch(query, {
     categoryId: props.params.category,
   });
-
+ 
   return (
     <main className="flex justify-center items-center">
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         {items.map((product) => (
           <div key={product._id} className="m-2 bg-slate-50 rounded-lg p-2">
             <Link href={`/products/${product._id}`}>
@@ -49,11 +49,11 @@ const page = async (props: PageProps) => {
             </Link>
             <div className="text-xl pt-3">{product.title}</div>
             <div className="font-bold text-lg text-end">{product.price}$</div>
-            <div className="text-lg font-semibold text-red-400">
+            <div className="text-lg font-semibold text-purple-400">
               <span className="text-lg font-semibold text-purple-500">
-                Stock:
+                Stock: 
               </span>
-              <span>{product.inventory}</span>
+              <span> {product.inventory}</span>
             </div>
           </div>
         ))}
