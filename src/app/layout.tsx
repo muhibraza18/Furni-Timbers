@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import ShoppingCartModal from "./components/ShoppingCartModel";
+import CartProvider from "./components/Providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
-});
+}); 
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -28,7 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+          {/* <CartProvider> */}
+          <CartProvider>
+          <Navbar />
+          <ShoppingCartModal /> 
+          {children}
+          </CartProvider>
       </body>
     </html>
   );
