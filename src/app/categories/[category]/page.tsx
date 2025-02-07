@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import { sanityClient } from "@/sanity/lib/client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,7 +29,7 @@ const page = async (props: PageProps) => {
         inventory
       }`;
 
-  const items: Product[] = await client.fetch(query, {
+  const items: Product[] = await sanityClient.fetch(query, {
     categoryId: props.params.category,
   });
  
@@ -49,8 +49,8 @@ const page = async (props: PageProps) => {
             </Link>
             <div className="text-xl pt-3">{product.title}</div>
             <div className="font-bold text-lg text-end">{product.price}$</div>
-            <div className="text-lg font-semibold text-purple-400">
-              <span className="text-lg font-semibold text-purple-500">
+            <div className="text-lg font-semibold text-gray-800">
+              <span className="text-lg font-semibold text-gray-700">
                 Stock: 
               </span>
               <span> {product.inventory}</span>
