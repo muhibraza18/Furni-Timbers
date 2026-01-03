@@ -5,7 +5,6 @@ const products = () => {
   return (
     <div>
       <ProductListing />
-
     </div>
   )
 }
